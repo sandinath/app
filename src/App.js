@@ -1,12 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
 import Home from './container/Home'
 
 const App = () => {
-  const navigate = useNavigate();
 
   return (
     <Routes>
