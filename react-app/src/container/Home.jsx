@@ -10,6 +10,27 @@ const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const [user, setUser] = useState();
   const scrollRef = useRef(null);
+  const [isAuthenticated, userHasAuthenticated] = useState(false);
+
+  useEffect(()=> {
+    getUserInfo();
+  }, [])
+
+  async function getUserInfo() {
+    try {
+      const response = await fetch('/.auth/me')
+      const payload = await response.json()
+      const { clientPrincipal } = payload;
+
+      if (clientPrincipal){
+        setUser(clientPrincipal)
+        userHasAuthenticated(true)
+        console.log(`clientPrincipal = ${JSON.stringify(clientPrincipal)}`);
+      }
+    } catch (error){
+      console.error('No profile could be found ' + error?.message?.toString())
+    }
+  }
 
   return (
     <div className="flex bg-gray-50 md:flex-row flex-col h-screen transition-height duration-75 ease-out">
