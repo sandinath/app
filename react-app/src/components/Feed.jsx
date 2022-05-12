@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import MasonryLayout from './MasonryLayout';
 import Post from './Post'
 
 import Spinner from './Spinner';
@@ -30,20 +31,7 @@ const Feed = () => {
   }
   return (
     <div>
-      <form id="form1" className="App-form" onSubmit={e => getDataFromApi(e)}>
-        <div>
-          <input 
-            type="text" 
-            id="name" 
-            className="App-input" 
-            placeholder="Name" 
-            value={name} 
-            onChange={e=>setName(e.target.value)} />
-          <button type="submit" className="App-button">Submit</button>
-        </div>
-      </form>
-      <div><h5>Message: {message} </h5></div>
-      <Post post={pins}/>
+      <MasonryLayout post={pins}/>
     </div>
   );
 };

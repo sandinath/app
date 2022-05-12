@@ -1,14 +1,19 @@
 import { AiFillLike } from 'react-icons/ai';
 import { Link } from 'react-router-dom'
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
 const PostDetail = ({user}) => {
 
   const [comment, setComment] = useState('');
   const [addingComment, setAddingComment] = useState(false);
+  const [postDetail, setPostDetail] = useState()
+  
+  useEffect(()=> {
+    const clientPrincipal = {"destination":"www.google.com","userRoles":["anonymous","authenticated"],"claims":[],"identityProvider":"aad","userDetails":"john"}
+    setPostDetail(clientPrincipal)
+  }, [])
 
   const addComment = () => {
-
   }
 
   return (
@@ -23,7 +28,7 @@ const PostDetail = ({user}) => {
                 <AiFillLike />
               </a>
             </div>
-            <a href="www.google.com" target="_blank" rel="noreferrer">
+            <a href={"https://www.google.com"} target="_blank" rel="noreferrer">
               Visit Link
             </a>
           </div>

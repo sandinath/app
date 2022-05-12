@@ -23,7 +23,7 @@ const Post = ({ post }) => {
     }
 
     return (
-        <div className="m-2 w-80">
+        <div className="m-2 w-fit">
             <div
             onMouseEnter={()=> setPostHovered(true)}
             onMouseLeave={()=> setPostHovered(false)}

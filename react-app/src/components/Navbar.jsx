@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { IoMdAdd, IoMdSearch } from 'react-icons/io';
+import { BiLogIn, BiLogOut } from 'react-icons/bi'
 
 const Navbar = ({ searchTerm, setSearchTerm, user }) => {
 
@@ -21,15 +22,18 @@ const Navbar = ({ searchTerm, setSearchTerm, user }) => {
       </div>
 
       {!user && (
-        <span><a key="login" href={`/.auth/login/aad?post_login_redirect_uri=/`}><h4>{'Login'}</h4></a></span>
+        <span>
+        <a key="login" href={`/.auth/login/aad?post_login_redirect_uri=/`}>
+          <h4><BiLogIn fontSize={50} /></h4>
+        </a>
+        </span>
       )}
       {user && (
         <div>
           <p>
-            <span>{user && user?.userDetails}</span>
             <span>
               <a href={`/.auth/logout?post_logout_redirect_uri=/`}>
-                Logout
+                <BiLogOut fontSize={50} />
               </a>
             </span>
           </p>
