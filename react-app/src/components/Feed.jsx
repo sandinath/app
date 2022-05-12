@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Post from './Post'
 
 import Spinner from './Spinner';
 
 const Feed = () => {
   const [pins, setPins] = useState();
+
   const [loading, setLoading] = useState(false);
   const { categoryId } = useParams();
 
@@ -41,6 +43,7 @@ const Feed = () => {
         </div>
       </form>
       <div><h5>Message: {message} </h5></div>
+      <Post post={pins}/>
     </div>
   );
 };

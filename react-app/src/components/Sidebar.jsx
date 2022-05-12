@@ -42,7 +42,6 @@ const Sidebar = ({ closeToggle, user }) => {
               onClick={handleCloseSidebar}
               key={category.name}
             >
-              <img src={category.image} className="w-8 h-8 rounded-full shadow-sm" alt="" />
               {category.name}
             </NavLink>
           ))}
@@ -50,12 +49,11 @@ const Sidebar = ({ closeToggle, user }) => {
       </div>
       {user && (
         <Link
-          to={`user-profile/${user._id}`}
+          to={`user-profile/${user?.userId}`}
           className="flex my-5 mb-3 gap-2 p-2 items-center bg-white rounded-lg shadow-lg mx-3"
           onClick={handleCloseSidebar}
         >
-          <img src={user.image} className="w-10 h-10 rounded-full" alt="user-profile" />
-          <p>{user.userName}</p>
+          <p>{user?.userDetails}</p>
           <IoIosArrowForward />
         </Link>
       )}

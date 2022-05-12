@@ -12,13 +12,8 @@ const CreatePin = ({ user }) => {
   const [destination, setDestination] = useState();
   const [fields, setFields] = useState();
   const [category, setCategory] = useState();
-  const [imageAsset, setImageAsset] = useState();
-  const [wrongImageType, setWrongImageType] = useState(false);
 
   const navigate = useNavigate();
-
-  const uploadImage = (e) => {
-  };
 
   const saveLink = () => {
   };
@@ -37,16 +32,6 @@ const CreatePin = ({ user }) => {
             placeholder="Add your title"
             className="outline-none text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 p-2"
           />
-          {user && (
-            <div className="flex gap-2 mt-2 mb-2 items-center bg-white rounded-lg ">
-              <img
-                src={user.image}
-                className="w-10 h-10 rounded-full"
-                alt="user-profile"
-              />
-              <p className="font-bold">{user.userName}</p>
-            </div>
-          )}
           <input
             type="text"
             value={about}
