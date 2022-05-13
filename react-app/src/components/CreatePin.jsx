@@ -64,7 +64,7 @@ const CreatePin = ({ userID }) => {
 
   useEffect(() => {
     getCategories()
-  }, [])
+  }, [newCategory])
 
   async function getCategories(){
     let cat_url=new URL(`https://finalproject-links.azurewebsites.net/api/category-getallcategories`)

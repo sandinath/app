@@ -31,15 +31,6 @@ const Post = ({ post }) => {
         })
     }
 
-    let alreadySaved = []
-    let _id = 10
-
-    const likePin = (id) => {
-    }
-
-    const deletePin = (id) => {
-    }
-
     return (
         <>  {postData && (
             <div className="m-2 w-fit">

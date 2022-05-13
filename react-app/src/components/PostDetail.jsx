@@ -81,7 +81,7 @@ const PostDetail = ({userID}) => {
                 <AiFillLike />
               </a>
             </div>
-            <a href={"https://www.google.com"} target="_blank" rel="noreferrer">
+            <a href={postDetail.link} target="_blank" rel="noreferrer">
               Visit Link
             </a>
           </div>
