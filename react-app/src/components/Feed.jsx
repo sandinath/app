@@ -6,32 +6,41 @@ import Post from './Post'
 import Spinner from './Spinner';
 
 const Feed = () => {
-  const [pins, setPins] = useState();
-
-  const [loading, setLoading] = useState(false);
+  const [posts, setPosts] = useState();
   const { categoryId } = useParams();
 
-  const [name, setName] = useState('');
-  const [message, setMessage] = useState('')
-
-  const getDataFromApi = async(e)=>{
-    e.preventDefault();
-    const data = await fetch(`/api/hello?name=${name}`);
-    const json = await data.json();
-    if (json.message){
-        setMessage(json.message)
+  useEffect(() => {
+    if (categoryId){
+      console.log(categoryId)
+      getCategoryPosts(categoryId)
+    } else {
+      getCategoryPosts("627d9cd32d8b0a33806dc66f")
     }
+  }, [categoryId])
+
+  async function getCategoryPosts(c_id){
+    let url = new URL(`https://finalproject-links.azurewebsites.net/api/category-getallposts`)
+    const params = {
+      id: c_id
+      }
+    url.search = new URLSearchParams(params)
+    console.log(url)
+    const r = await fetch(url)
+    const p = await r.json()
+    console.log(p.posts)
+    setPosts(p.posts)
   }
 
-  const ideaName = categoryId || 'new';
-  if (loading) {
+  if (!posts) {
     return (
-      <Spinner message={`We are adding ${ideaName} ideas to your feed!`} />
+      <div>Loading</div>
     );
   }
   return (
     <div>
-      <MasonryLayout post={pins}/>
+      {posts && (
+      <MasonryLayout posts={posts}/>
+      )}
     </div>
   );
 };

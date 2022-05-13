@@ -12,10 +12,10 @@ const breakpointColumnsObj = {
   700: 1,
 };
 
-const MasonryLayout = ({ pins }) => (
+const MasonryLayout = ({ posts }) => (
   <Masonry className="flex animate-slide-fwd" breakpointCols={breakpointColumnsObj}>
     {/* {pins?.map((pin) => <Post key={pin._id} pin={pin} className="w-max" />)} */}
-    {[1,2,3,4,5].map((p) => <Post key={p} post={p}/>)}
+    {posts?.map((p) => <Post key={p} post={p}/>)}
   </Masonry>
 );
 

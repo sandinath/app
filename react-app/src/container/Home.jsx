@@ -39,12 +39,12 @@ const Home = () => {
   }, [user])
 
   async function getUserID() {
-    let url = `https://finalproject-links.azurewebsites.net/api/createuser?username=${user.userDetails}&?email=${user.userDetails}`
+    let url = `https://finalproject-links.azurewebsites.net/api/user-createuser?username=${user.userDetails}&email=${user.userDetails}`
     console.log(url)
     const r = await fetch(url)
     const p = await r.json()
-    setUserID(p)
-    console.log(p)
+    setUserID(p.id)
+    console.log(p.id)
   }
 
   return (
@@ -74,7 +74,7 @@ const Home = () => {
       <div className="pb-2 flex-1 h-screen overflow-y-scroll" ref={scrollRef}>
         <Routes>
           <Route path="/user-profile/:userID" element={<UserProfile />} />
-          <Route path="/*" element={<Pins user={user && user} />} />
+          <Route path="/*" element={<Pins userID={userID && userID} />} />
         </Routes>
       </div>
     </div>

@@ -3,9 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { IoMdAdd, IoMdSearch } from 'react-icons/io';
 import { BiLogIn, BiLogOut } from 'react-icons/bi'
 
-const Navbar = ({ searchTerm, setSearchTerm, user }) => {
+const Navbar = ({ searchTerm, setSearchTerm, userID }) => {
 
   const navigate = useNavigate();
+  console.log(userID)
 
   return (
     <div className="flex gap-2 md:gap-5 w-full mt-5 pb-7 ">
@@ -21,14 +22,14 @@ const Navbar = ({ searchTerm, setSearchTerm, user }) => {
         />
       </div>
 
-      {!user && (
+      {!userID && (
         <span>
         <a key="login" href={`/.auth/login/aad?post_login_redirect_uri=/`}>
           <h4><BiLogIn fontSize={50} /></h4>
         </a>
         </span>
       )}
-      {user && (
+      {userID && (
         <div>
           <p>
             <span>
