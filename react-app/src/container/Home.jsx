@@ -27,7 +27,8 @@ const Home = () => {
       if (clientPrincipal){
         setUser(clientPrincipal)
         userHasAuthenticated(true)
-        console.log(`clientPrincipal = ${JSON.stringify(clientPrincipal)}`);
+        console.log(`clientPrincipal = 
+        ${JSON.stringify(clientPrincipal)}`);
       }
     } catch (error){
       console.error(error)

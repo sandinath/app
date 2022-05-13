@@ -25,7 +25,8 @@ const CreatePin = ({ userID }) => {
   }, [fields])
 
   async function createPost(){
-    let url = new URL(`https://finalproject-links.azurewebsites.net/api/post-makepost`)
+    let url = 
+    new URL(`https://finalproject-links.azurewebsites.net/api/post-makepost`)
     const params = {title: title,
                     author: userID,
                     category: categoryID,
@@ -40,7 +41,7 @@ const CreatePin = ({ userID }) => {
   }
 
   useEffect(() => {
-    if (createCategory){
+    if (createCategory && userID){
       createNewCategory()
     }
   }, [createCategory])
@@ -100,14 +101,16 @@ const CreatePin = ({ userID }) => {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="Add your title"
-                className="outline-none text-2xl sm:text-3xl font-bold border-b-2 border-gray-200 p-2"
+                className="outline-none text-2xl sm:text-3xl 
+                font-bold border-b-2 border-gray-200 p-2"
               />
               <input
                 type="text"
                 value={about}
                 onChange={(e) => setAbout(e.target.value)}
                 placeholder="Tell everyone what your link is about"
-                className="outline-none text-base sm:text-lg border-b-2 border-gray-200 p-2"
+                className="outline-none text-base sm:text-lg 
+                border-b-2 border-gray-200 p-2"
               />
               <input
                 type="url"

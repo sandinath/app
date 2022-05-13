@@ -33,7 +33,8 @@ const PostDetail = ({userID}) => {
   }
 
   async function getPost(){
-    let url = new URL(`https://finalproject-links.azurewebsites.net/api/post-getpost`)
+    let url = 
+    new URL(`https://finalproject-links.azurewebsites.net/api/post-getpost`)
     const params = { postID: postId }
     url.search = new URLSearchParams(params)
     const res = await fetch(url);
@@ -95,7 +96,7 @@ const PostDetail = ({userID}) => {
           </Link>
           <h2 className="mt-5 text-2xl">Comments</h2>
           <div className="max-h-370 overflow-y-auto">
-            {["1","2"].map((item) => (
+            {(postDetail?.comments).map((item) => (
               <div className="flex gap-2 mt-5 items-center bg-white rounded-lg" key={item}>
                 <div className="flex flex-col">
                   <p className="font-bold">name</p>

@@ -6,7 +6,7 @@ import Post from './Post'
 import Spinner from './Spinner';
 
 const Feed = () => {
-  const [posts, setPosts] = useState();
+  const [posts, setPosts] = useState([]);
   const { categoryId } = useParams();
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const Feed = () => {
       console.log(categoryId)
       getCategoryPosts(categoryId)
     } else {
-      getCategoryPosts("627d9cd32d8b0a33806dc66f")
+      getCategoryPosts("627e8a3ff5cfb38de12fe108")
     }
   }, [categoryId])
 
